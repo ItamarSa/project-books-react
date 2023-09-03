@@ -15,25 +15,13 @@ export const bookService = {
     setFilterBy
 }
 
-// function query(filterBy={}) {
-//     return storageService.query(BOOK_KEY)
-//         .then(books => {
-//             if (filterBy.txt) {
-//                 const regex = new RegExp(filterBy.txt, 'i')
-//                 books = books.filter(book => regex.test(book.txt))
-//             }
-//             if (filterBy.listPrice) {
-//                 books = books.filter(book => book.listPrice['amount'] >= filterBy.listPrice)
-//             }
-//             return books
-//         })
-// }
 function query(filterBy = {}) {
     return storageService.query(BOOK_KEY)
         .then(books => {
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
-                books = books.filter(book => regex.test(book.txt))
+                books = books.filter(book => regex.test(book.title))
+                console.log('*******', books);
             }
             if (filterBy.listPrice) {
                 books = books.filter(book => book.listPrice['amount'] >= filterBy.listPrice)
@@ -58,12 +46,12 @@ function save(book) {
     }
 }
 
-function getEmptyBook(id ='',title = '', listPrice) {
+function getEmptyBook(id = '', title = '', listPrice) {
     return { id, title, listPrice }
 }
 
 function setFilterBy(filterBy = {}) {
-     if (filterBy.txt !== undefined) filterBy.txt = filterBy.txt
+    if (filterBy.txt !== undefined) filterBy.txt = filterBy.txt
     if (filterBy.listPrice !== undefined) filterBy.listPrice = filterBy.listPrice
     return filterBy
 }
@@ -90,22 +78,22 @@ function _createBooks() {
             "amount": 109,
             "currencyCode": "EUR",
             "isOnSale": false
-          }))
+        }))
         books.push(_createBook('JYOJa2NpSCq', 'morbi', {
             "amount": 44,
             "currencyCode": "EUR",
             "isOnSale": true
-          }))
+        }))
         books.push(_createBook('1y0Oqts35DQ', 'at viverra venenatis', {
             "amount": 108,
             "currencyCode": "ILS",
             "isOnSale": false
-          }))
+        }))
         books.push(_createBook('kSnfIJyikTP', 'dictum', {
             "amount": 30,
             "currencyCode": "EUR",
             "isOnSale": true
-          }))
+        }))
         utilService.saveToStorage(BOOK_KEY, books)
     }
 }

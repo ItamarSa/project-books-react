@@ -1,9 +1,7 @@
 const { useState, useEffect } = React
 
 export function BookFilter({ filterBy, onSetFilterBy }) {
-
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
-
 
     useEffect(() => {
         onSetFilterBy(filterByToEdit)
@@ -34,17 +32,6 @@ export function BookFilter({ filterBy, onSetFilterBy }) {
         ev.preventDefault()
         onSetFilterBy(filterByToEdit)
     }
-
-    // function handleTxtChange({ target }) {
-    //     const value = target.value
-    //     setFilterByToEdit(prevFilter => ({ ...prevFilter, txt: value }))
-    // }
-
-    // function handleMinSpeedChange({ target }) {
-    //     const value = target.value
-    //     setFilterByToEdit(prevFilter => ({ ...prevFilter, minSpeed: value }))
-    // }
-
 
     const { txt, listPrice } = filterByToEdit
     return (

@@ -16,7 +16,7 @@ export function BookIndex() {
     useEffect(() => {
         console.log('mount')
         bookService.query(filterBy).then(books => setBooks(books))
-        bookService.query().then(setBooks)
+        // bookService.query().then(setBooks)
     }, [filterBy])
 
     function onRemoveBook(bookId) {
@@ -53,3 +53,4 @@ export function BookIndex() {
     )
 
 }
+
