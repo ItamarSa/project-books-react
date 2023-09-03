@@ -2,8 +2,8 @@ export function BookPreview({ book }) {
     return (
         <article className="book-preview">
             <h2>Book Title: {book.title}</h2>
-            <h4>Book List Price: {book.listPrice}</h4>
-            <img src={`../BooksImages/${book.id}.png`} alt="" />
+            <h4>Book List Price: {book.listPrice['amount']}</h4>
+            <img src={`./BooksImages/${book.id}.jpg`} alt="img" />
         </article>
     )
 }

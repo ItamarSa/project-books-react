@@ -7,6 +7,14 @@ export function BooksIndex() {
 
     const [books, setBooks] = useState(null)
 
+
+
+    useEffect(() => {
+        console.log('mount')
+        // bookService.query(filterBy).then(books => setBooks(books))
+         bookService.query().then(setBooks)
+    }, [])
+
     function onRemoveBook(bookId) {
         bookService.remove(bookId).then(() => {
             setBooks(prevBooks => prevBooks.filter(book => book.id !== bookId))
@@ -18,14 +26,12 @@ export function BooksIndex() {
     if (!books) return <div>Loading...</div>
     return (
         <section className="book-index">
-            {!selectedBookId &&
-                <React.Fragment>
-                    <BookFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
-                    <BookList books={books} onRemoveBook={onRemoveBook} onSelectBookId={onSelectBookId} />
-                </React.Fragment>
+            {
+
+                    <BookList books={books} onRemoveBook={onRemoveBook} />
             }
 
-            {selectedBookId && <BookDetails onBack={() => onSelectBookId(null)} bookId={selectedBookId} />}
+            {/* {selectedBookId && <BookDetails onBack={() => onSelectBookId(null)} bookId={selectedBookId} />} */}
         </section>
     )
 
