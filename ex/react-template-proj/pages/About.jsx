@@ -1,5 +1,5 @@
 export function About() {
-    
+
     return (
         <section className="about">
             <h1>About books and us...</h1>

@@ -46,8 +46,8 @@ function save(book) {
     }
 }
 
-function getEmptyBook(vendor = '', maxSpeed = 0) {
-    return { id: '', vendor, maxSpeed }
+function getEmptyBook(title = '', listPrice = 0) {
+    return { id: '', title, listPrice }
 }
 
 function getFilterBy() {
@@ -73,16 +73,32 @@ function _createBooks() {
     let books = utilService.loadFromStorage(BOOK_KEY)
     if (!books || !books.length) {
         books = []
-        books.push(_createBook('audu', 300))
-        books.push(_createBook('fiak', 120))
-        books.push(_createBook('subali', 100))
-        books.push(_createBook('mitsu', 150))
+        books.push(_createBook('OXeMG8wNskc', 'metus hendrerit', {
+            "amount": 109,
+            "currencyCode": "EUR",
+            "isOnSale": false
+          }))
+        books.push(_createBook('JYOJa2NpSCq', 'morbi', {
+            "amount": 44,
+            "currencyCode": "EUR",
+            "isOnSale": true
+          }))
+        books.push(_createBook('1y0Oqts35DQ', 'at viverra venenatis', {
+            "amount": 108,
+            "currencyCode": "ILS",
+            "isOnSale": false
+          }))
+        books.push(_createBook('kSnfIJyikTP', 'dictum', {
+            "amount": 30,
+            "currencyCode": "EUR",
+            "isOnSale": true
+          }))
         utilService.saveToStorage(BOOK_KEY, books)
     }
 }
 
-function _createBook(vendor, maxSpeed = 250) {
-    const book = getEmptyBook(vendor, maxSpeed)
-    book.id = utilService.makeId()
+function _createBook(id, title, listPrice) {
+    const book = getEmptyBook(id, title, listPrice)
+    // book.id = utilService.makeId()
     return book
 }
