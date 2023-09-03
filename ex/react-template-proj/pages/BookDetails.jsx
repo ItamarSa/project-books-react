@@ -34,8 +34,8 @@ export function BookDetails({ bookId, onBack }) {
     if (!book) return <div>Loading...</div>
     return (
         <section className="book-details">
-            <h3>Book Title: {book.title}</h3>
-            <h1>Book Subtitle: {book.subtitle}</h1>
+            <h1>Book Title: {book.title}</h1>
+            <h3>Book Subtitle: {book.subtitle}</h3>
             <h4>Book Authors: {book.authors}</h4>
             <h4>Published Date: {book.publishedDate}</h4>
             <h4>Book Age: {bookAge(book)}</h4>

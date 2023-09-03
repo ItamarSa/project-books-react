@@ -1,5 +1,4 @@
 export function BookPreview({ book }) {
-    console.log('book', book);
     return (
         <article className="book-preview">
             <h2>Book Title: {book.title}</h2>

@@ -27,7 +27,6 @@ export function BookIndex() {
 
 
     function onSetFilterBy(filterBy) {
-        console.log('filterBy:', filterBy)
         setFilterBy(prevFilter => ({ ...prevFilter, ...filterBy }))
     }
 

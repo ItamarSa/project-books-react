@@ -21,7 +21,6 @@ function query(filterBy = {}) {
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
                 books = books.filter(book => regex.test(book.title))
-                console.log('*******', books);
             }
             if (filterBy.listPrice) {
                 books = books.filter(book => book.listPrice['amount'] >= filterBy.listPrice)
