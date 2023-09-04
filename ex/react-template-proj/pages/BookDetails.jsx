@@ -1,3 +1,4 @@
+import { LongText } from "../cmps/LongText.jsx";
 import { bookService } from "../services/books.service.js";
 
 
@@ -18,8 +19,12 @@ export function BookDetails({ bookId, onBack }) {
     }
 
     function bookAge(book) {
-        if (book.publishedDate < 1) return 'New'
-        if (book.publishedDate > 10) return 'Vintage'
+        const currYear = new Date().getFullYear()
+        let publishedYear = book.publishedDate
+        let diff = currYear - publishedYear
+        if (diff < 1) publishedYear += ' - New'
+        if (diff > 10) publishedYear += ' - Vintage'
+        return publishedYear
     }
 
     function getPriceColor(book) {
@@ -29,23 +34,26 @@ export function BookDetails({ bookId, onBack }) {
 
     function onSale(book) {
         if (book.listPrice['isOnSale']) return 'On Sale!'
+        return
     }
 
     if (!book) return <div>Loading...</div>
     return (
         <section className="book-details">
-            <h1>Book Title: {book.title}</h1>
-            <h3>Book Subtitle: {book.subtitle}</h3>
-            <h4>Book Authors: {book.authors}</h4>
-            <h4>Published Date: {book.publishedDate}</h4>
-            <h4>Book Age: {bookAge(book)}</h4>
+            <h1>{book.title}</h1>
+            <h2>{book.subtitle}</h2>
+            <h4>Book Authors: {book.authors.join(',')}</h4>
+            <h4>Published Date: {bookAge(book)}</h4>
+            {/* <h4>Book Age: {bookAge(book)}</h4> */}
             <h4>Page Count: {book.pageCount}</h4>
             <h4>Read Level: {pageCount(book)}</h4>
             <h4>Book Category: {[book.categories]}</h4>
             <h4 className={getPriceColor(book)}>Book Price: {book.listPrice['amount']}</h4>
             <h4>Discount: {onSale(book)}</h4>
             <h4>Book language: {book.language}</h4>
-            <p>Book Description :{book.description}</p>
+
+            <div>Description: <LongText txt = {book.description} /></div>
+
             <button onClick={onBack}>Back</button>
         </section>
     )
