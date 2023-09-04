@@ -3,14 +3,32 @@ import { bookService } from "../services/books.service.js";
 
 
 const { useState, useEffect } = React
+const { useParams, useNavigate } = ReactRouterDOM
 
-export function BookDetails({ bookId, onBack }) {
+
+export function BookDetails({ onBack }) {
 
     const [book, setBook] = useState(null)
+    const params = useParams()
+    const navigate = useNavigate()
 
     useEffect(() => {
-        bookService.get(bookId).then(setBook)
-    }, [])
+        loadRobot()
+    }, [params.bookId])
+
+    function loadRobot() {
+        bookService.get(params.bookId)
+            .then(setBook)
+            .catch(err => {
+                console.log('err:', err)
+                navigate('/book')
+            })
+    }
+
+    function onBack() {
+        navigate('/book')
+        // navigate(-1)
+    }
 
     function pageCount(book) {
         if (book.pageCount > 500) return 'Serious Reading'
