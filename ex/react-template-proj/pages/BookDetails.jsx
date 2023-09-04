@@ -46,12 +46,12 @@ export function BookDetails({ onBack }) {
     }
 
     function getPriceColor(book) {
-        if (book.listPrice['amount'] > 150) return 'red'
-        if (book.listPrice['amount'] < 20) return 'green'
+        if (book.listPrice.amount > 150) return 'red'
+        if (book.listPrice.amount < 20) return 'green'
     }
 
     function onSale(book) {
-        if (book.listPrice['isOnSale']) return 'On Sale!'
+        if (book.listPrice.isOnSale) return 'On Sale!'
         return
     }
 

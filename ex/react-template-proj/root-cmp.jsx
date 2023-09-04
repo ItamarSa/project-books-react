@@ -7,10 +7,9 @@ import { About } from './pages/About.jsx'
 import { BookIndex } from './pages/BookIndex.jsx'
 import { AppHeader } from './cmps/AppHeader.jsx'
 import { BookDetails } from './pages/BookDetails.jsx'
+import { BookEdit } from './pages/BookEdit.jsx'
 
 export function App() {
-    // const [page, setPage] = useState('book')
-
     return (
         <Router>
             <section className="app main-layout">
@@ -21,26 +20,11 @@ export function App() {
                         <Route path="/about" element={<About />} />
                         <Route path="/book" element={<BookIndex />} />
                         <Route path="/book/:bookId" element={<BookDetails />} />
+                        <Route path="/book/edit/:bookId" element={<BookEdit />} />
+                        <Route path="/book/edit" element={<BookEdit />} />
                     </Routes>
                 </main>
             </section>
         </Router>
     )
 }
-
-
-
-
-
-
-{/* <header className="app-header full main-layout">
-            <h1>React Book App</h1>
-            <nav className="app-nav">
-                <a onClick={() => setPage('home')} href="#">Home</a>
-                <a onClick={() => setPage('about')} href="#">About</a>
-                <a onClick={() => setPage('book')} href="#">Books</a>
-            </nav>
-        </header> */}
-{/* {page === 'home' && < Home />}
-                    {page === 'about' && <About />}
-                    {page === 'book' && <BookIndex />} */}

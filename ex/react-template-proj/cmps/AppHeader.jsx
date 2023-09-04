@@ -1,4 +1,4 @@
-// import { UserMsg } from "./user-msg.jsx"
+import { UserMsg } from "./UserMsg.jsx"
 
 const { Link, NavLink } = ReactRouterDOM
 
@@ -13,7 +13,7 @@ export function AppHeader() {
                     <NavLink to="/book" >Books</NavLink>
                 </nav>
             </section>
-            {/* <UserMsg/> */}
+            <UserMsg/>
         </header>
     )
 }
