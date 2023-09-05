@@ -39,8 +39,8 @@ export function BookEdit() {
                 break;
         }
 
-        if(field === 'listPrice') {
-            const listPrice = { ...bookToEdit.listPrice}
+        if (field === 'listPrice') {
+            const listPrice = { ...bookToEdit.listPrice }
             listPrice.amount = value
             setBookToEdit(prevBookToEdit => ({ ...prevBookToEdit, [field]: listPrice }))
             return
@@ -48,7 +48,7 @@ export function BookEdit() {
         setBookToEdit(prevBookToEdit => ({ ...prevBookToEdit, [field]: value }))
     }
 
-    
+
     function onSaveBook(ev) {
         ev.preventDefault()
         bookService.save(bookToEdit)
@@ -59,13 +59,13 @@ export function BookEdit() {
             .catch(err => {
                 console.log('err:', err)
                 showErrorMsg('Problem Adding/Editing ' + bookToEdit.id)
-        })
+            })
     }
 
-    const { title} = bookToEdit
+    const { title, listPrice: { amount } } = bookToEdit
     console.log('bookToEdit', bookToEdit);
 
-    const { amount } = bookToEdit.listPrice
+    // const { amount } = bookToEdit.listPrice
 
     return (
         <section className="book-edit">

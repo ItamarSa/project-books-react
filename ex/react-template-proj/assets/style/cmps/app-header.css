@@ -1,7 +1,12 @@
 .app-header {
   background-color: var(--clr1);
-  color: var(--clr1bg);
-  padding: 1em;
+  color: var(--clr1bg-light);
+}
+
+a.active {
+  color: rgb(241, 212, 241);
+  font-weight: 600;
+  text-decoration: underline;
 }
 
 .app-nav {
@@ -9,7 +14,7 @@
   gap: 15px;
 }
 
-@media(max-width: 720px) {
+@media (max-width: 720px) {
   .app-header {
     color: var(--clr2bg);
   }

@@ -38,7 +38,7 @@ export function showErrorMsg(txt) {
 // Service Testing:
 // Example for using the service
 const unsubscribe = eventBusService.on('some-event', (data) => {
-    console.log('Got some-event:', data)
+    // console.log('Got some-event:', data)
 })
 
 eventBusService.emit('some-event', { num: 100 })
