@@ -18,6 +18,7 @@
 @import 'cmps/add-review.css';
 @import 'cmps/review-list.css';
 @import 'cmps/review-preview.css';
+@import 'cmps/star-rating.css';
 
 /*pages*/
 @import 'pages/home.css';

@@ -95,6 +95,7 @@ function getEmptyReview() {
     fullName: '',
     rating: '',
     readAt: '',
+    comment: ''
   }
 }
 
