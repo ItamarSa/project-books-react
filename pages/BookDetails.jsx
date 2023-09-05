@@ -93,7 +93,6 @@ export function BookDetails({ onBack }) {
             <h2>{book.subtitle}</h2>
             <h4>Book Authors: {book.authors.join(',')}</h4>
             <h4>Published Date: {bookAge(book)}</h4>
-            {/* <h4>Book Age: {bookAge(book)}</h4> */}
             <h4>Page Count: {book.pageCount}</h4>
             <h4>Read Level: {pageCount(book)}</h4>
             <h4>Book Category: {[book.categories]}</h4>
@@ -113,8 +112,8 @@ export function BookDetails({ onBack }) {
             </section>
             <button onClick={onBack}>Back</button>
             <div>
-                <Link to={`/book/${book.prevBookId}`}>Previous Book</Link> | 
-                <Link to={`/book/${book.nextBookId}`}>Next Book</Link> 
+                <Link to={`/book/${book.prevBookId}`}>Previous Book</Link> |
+                <Link to={`/book/${book.nextBookId}`}>Next Book</Link>
             </div>
         </section>
     )

@@ -20,7 +20,6 @@ export function BookEdit() {
             .catch(err => console.log('err:', err))
     }
 
-
     function handleChange({ target }) {
         const field = target.name
         let value = target.value
@@ -48,7 +47,6 @@ export function BookEdit() {
         setBookToEdit(prevBookToEdit => ({ ...prevBookToEdit, [field]: value }))
     }
 
-
     function onSaveBook(ev) {
         ev.preventDefault()
         bookService.save(bookToEdit)
@@ -64,8 +62,6 @@ export function BookEdit() {
 
     const { title, listPrice: { amount } } = bookToEdit
     console.log('bookToEdit', bookToEdit);
-
-    // const { amount } = bookToEdit.listPrice
 
     return (
         <section className="book-edit">

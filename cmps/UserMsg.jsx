@@ -11,12 +11,10 @@ export function UserMsg() {
             setMsg(msg)
             setTimeout(onCloseMsg, 1500)
         })
-
         return () => {
             unsubscribe()
         }
     }, [])
-
 
     function onCloseMsg() {
         setMsg(null)

@@ -43,5 +43,4 @@ export function RateByStars({ handleChange, reviewToAdd }) {
             })}
         </div>
     )
-
 }

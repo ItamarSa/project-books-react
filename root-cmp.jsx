@@ -1,4 +1,3 @@
-const { useState } = React
 const Router = ReactRouterDOM.HashRouter
 const { Routes, Route, Navigate } = ReactRouterDOM
 
@@ -20,8 +19,8 @@ export function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} >
-                            <Route path="team" element={<AboutTeam/>}/>
-                            <Route path="goal" element={<AboutGoal/>}/>
+                            <Route path="team" element={<AboutTeam />} />
+                            <Route path="goal" element={<AboutGoal />} />
                         </Route>
                         <Route path="/book" element={<BookIndex />} />
                         <Route path="/book/:bookId" element={<BookDetails />} />

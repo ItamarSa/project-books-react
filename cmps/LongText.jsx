@@ -25,5 +25,4 @@ export function LongText({ txt, length = 100 }) {
             )}
         </div>
     )
-
 }
