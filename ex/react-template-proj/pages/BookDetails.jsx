@@ -6,7 +6,7 @@ import { ReviewList } from "../cmps/ReviewList.jsx";
 
 
 const { useState, useEffect } = React
-const { useParams, useNavigate } = ReactRouterDOM
+const { useParams, useNavigate, Link } = ReactRouterDOM
 
 
 export function BookDetails({ onBack }) {
@@ -112,6 +112,10 @@ export function BookDetails({ onBack }) {
                     'No Reviews'}
             </section>
             <button onClick={onBack}>Back</button>
+            <div>
+                <Link to={`/book/${book.prevBookId}`}>Previous Book</Link> | 
+                <Link to={`/book/${book.nextBookId}`}>Next Book</Link> 
+            </div>
         </section>
     )
 }
